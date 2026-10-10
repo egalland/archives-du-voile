@@ -1,0 +1,5 @@
+
+/* Keep essential text visible across effect toggles. */
+.hero-content,.section-heading,.scene-copy,.card,.story-row{opacity:1}
+.quiet .hero-content,.quiet .reveal,.quiet dialog[open]{opacity:1!important;transform:none!important;filter:none!important}
+.animations-paused .hero-content,.animations-paused .seen.reveal{opacity:1!important}

@@ -1,0 +1,11 @@
+
+.card-save[hidden],#seal-dossier[hidden],[data-filter="Mes sceaux"][hidden],.seal-hint[hidden]{display:none!important}
+.organic-layer:nth-child(3) img{transform-origin:74% 26%;animation:entity-breath 9s ease-in-out infinite}
+@keyframes entity-breath{0%,100%{transform:scale(1) skewY(0deg);filter:brightness(.85)}50%{transform:scale(1.025) skewY(.4deg);filter:brightness(1.1)}}
+.card:hover .card-main img,.card:focus-within .card-main img{animation:portrait-stir 7s ease-in-out infinite;filter:brightness(1.08) saturate(.95);transform-origin:50% 35%}
+@keyframes portrait-stir{0%,100%{transform:scale(1.07) rotate(-.35deg)}50%{transform:scale(1.14) rotate(.45deg)}}
+.vision-scene{--portal-x:60%;--portal-y:40%}
+.portal-light{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.1;mix-blend-mode:screen;background:radial-gradient(ellipse 180px 260px at var(--portal-x) var(--portal-y),#d5fbdcb0,#69a78b40 40%,transparent 75%);transition:opacity .9s}
+.vision-scene:hover .portal-light{opacity:.85;animation:portal-pulse 5s ease-in-out infinite}
+@keyframes portal-pulse{0%,100%{filter:brightness(.7) blur(10px)}50%{filter:brightness(1.4) blur(3px)}}
+.quiet .portal-light{display:none}

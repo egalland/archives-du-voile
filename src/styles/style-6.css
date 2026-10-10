@@ -1,0 +1,37 @@
+/* Engraved glyph aperture: no rectangular slabs or imitation gear borders. */
+#dossier .ritual-curtain{background:radial-gradient(ellipse at center,#06100ee8,#020504f7 75%);isolation:isolate;opacity:0;display:grid;place-items:center}
+#dossier .ritual-curtain:before,#dossier .ritual-curtain:after{content:none!important}
+.glyph-aperture{width:min(72vh,66vw,540px);position:relative;color:#b5b68b;filter:drop-shadow(0 0 18px #799b6930)}
+.glyph-aperture svg{width:100%;display:block;fill:none;stroke:currentColor;stroke-width:1.2;overflow:visible}
+.glyph-aperture .seal-writing{fill:currentColor;stroke:none;font:19px Georgia;text-anchor:middle;dominant-baseline:middle;opacity:.8}
+.glyph-aperture .inner-writing{font-size:23px}.seal-outer,.seal-inner,.seal-center{transform-origin:300px 300px;transform-box:view-box}
+.seal-name,.seal-caption{position:absolute;width:100%;text-align:center;left:0;text-transform:uppercase;letter-spacing:.3em;pointer-events:none}
+.seal-name{bottom:-20px;font:11px Arial;color:#c2c5ac}.seal-caption{bottom:-45px;font:8px Arial;color:#7f9585}
+#dossier[open].casting .ritual-curtain{animation:glyph-unseal 1.35s cubic-bezier(.24,.02,.24,1) both}
+#dossier[open].casting .seal-outer{animation:outer-unlock 1.35s cubic-bezier(.25,.04,.25,1) both}
+#dossier[open].casting .seal-inner{animation:inner-unlock 1.35s cubic-bezier(.25,.04,.25,1) both}
+#dossier[open].casting .seal-center{animation:core-unlock 1.35s both}
+#dossier[open].casting .seal-draw{stroke-dasharray:900;animation:etch-glyph 1.2s both}
+#dossier[open].casting .dossier-visual>img{animation:portrait-arrival 1.65s cubic-bezier(.2,.6,.25,1) both}
+@keyframes glyph-unseal{0%{opacity:0}12%,52%{opacity:1}78%{opacity:.7}100%{opacity:0;visibility:hidden}}
+@keyframes outer-unlock{0%{transform:rotate(calc(var(--seal-angle,0deg) - 14deg)) scale(.96);opacity:.35}45%{transform:rotate(var(--seal-angle,0deg)) scale(1);opacity:1}72%{transform:rotate(calc(var(--seal-angle,0deg) + 8deg)) scale(1.025)}100%{transform:rotate(calc(var(--seal-angle,0deg) + 12deg)) scale(1.13);opacity:0}}
+@keyframes inner-unlock{0%{transform:rotate(22deg);opacity:.15}48%{transform:rotate(-5deg);opacity:1}100%{transform:rotate(-28deg) scale(1.12);opacity:0}}
+@keyframes core-unlock{0%,20%{opacity:.12;transform:scale(.94)}55%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.22)}}
+@keyframes etch-glyph{from{stroke-dashoffset:900}65%,to{stroke-dashoffset:0}}
+@keyframes portrait-arrival{0%,38%{filter:brightness(.32);transform:scale(1.045)}100%{filter:brightness(1);transform:scale(1)}}
+/* All scene planes share one overscanned canvas and one crop. Alpha silhouettes provide edges. */
+.vision-scene>.scene-planes{position:absolute;inset:-4%;z-index:-3;pointer-events:none;overflow:visible}
+.scene-plane{position:absolute;inset:0;will-change:transform}
+.scene-plane img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--scene-focus,50%) center;clip-path:none;animation:none;filter:brightness(.72) saturate(.8)}
+.scene-plane.foreground{z-index:1}.scene-plane.backdrop{z-index:0}.vision-scene .scene-depth{display:none!important}
+.vision-scene{--scene-focus:50%}.abyss-scene{--scene-focus:60%}.vault-scene{--scene-focus:52%}
+.vision-scene>.scene-veil{z-index:-2}.portal-light{mix-blend-mode:screen}
+.organic-layer .cthulhu-eye-mask{position:absolute;inset:0;opacity:.035;mix-blend-mode:screen;pointer-events:none;filter:blur(.5px) drop-shadow(0 0 8px #a5dfb1)!important;transition:opacity 2.7s cubic-bezier(.2,0,.7,1)}
+.organic-layer.looking .cthulhu-eye-mask{opacity:.95}
+.card-main[data-open="cthulhu"] img{object-position:50% 30%;transform-origin:50% 30%}
+#dossier[data-entity="cthulhu"] #dossier-image{object-position:50% 30%!important}
+.quiet .scene-plane{transform:none!important}.quiet .cthulhu-eye-mask{opacity:.035!important}.quiet #dossier .ritual-curtain{display:none!important}.quiet #dossier .dossier-visual>img{animation:none!important;filter:none!important;transform:none!important}
+@media(max-width:760px){.glyph-aperture{width:min(82vw,430px)}.vision-scene{--scene-focus:57%}.abyss-scene{--scene-focus:60%}.mountains-scene{--scene-focus:56%}}
+@media(prefers-reduced-motion:reduce){#dossier .ritual-curtain{display:none!important}.scene-plane{transform:none!important}.cthulhu-eye-mask{opacity:.035!important;transition:none}.dossier-visual>img{animation:none!important}}
+
+.scene-planes.planes-pending{opacity:0}

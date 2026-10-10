@@ -1,0 +1,28 @@
+
+/* Weighty interlocking archive seal. */
+.ritual-curtain{background:radial-gradient(circle,#10211d,#020607 70%);overflow:hidden}
+.ritual-curtain::before,.ritual-curtain::after{content:'';position:absolute;top:0;bottom:0;width:50%;z-index:-1;background:repeating-linear-gradient(112deg,#0b1515 0 18px,#111c1c 19px 20px,#070d0e 21px 63px);box-shadow:inset 0 0 90px #000;border:1px solid #67736455}
+.ritual-curtain::before{left:0}.ritual-curtain::after{right:0}
+dialog[open].casting .ritual-curtain{animation:heavy-reveal 1.65s both}
+dialog[open].casting .ritual-wheel{animation:gear-unlock 1.65s both;border-width:7px;border-style:double;outline-width:3px;box-shadow:0 12px 32px #000,inset 0 0 60px #000}
+dialog[open].casting .ritual-curtain::before{animation:slab-left 1.65s both}
+dialog[open].casting .ritual-curtain::after{animation:slab-right 1.65s both}
+@keyframes heavy-reveal{0%,55%{opacity:1}78%{opacity:.95}100%{opacity:0}}
+@keyframes gear-unlock{0%,15%{transform:rotate(-18deg) scale(.95)}24%,35%{transform:rotate(0) scale(.95)}44%,54%{transform:rotate(22deg) scale(.95)}63%{transform:rotate(21deg) translateX(2px)}72%{transform:rotate(48deg) scale(1)}100%{transform:rotate(48deg) scale(1.8);opacity:0}}
+@keyframes slab-left{0%,58%{transform:translateX(0)}64%{transform:translateX(-2%)}100%{transform:translateX(-105%)}}
+@keyframes slab-right{0%,58%{transform:translateX(0)}64%{transform:translateX(2%)}100%{transform:translateX(105%)}}
+.scene-depth{position:absolute;inset:-5%;pointer-events:none;z-index:-2;will-change:transform;overflow:hidden}
+.scene-depth img{width:100%;height:100%;object-fit:cover;filter:brightness(.8);clip-path:polygon(0 65%,18% 53%,32% 72%,49% 58%,67% 76%,86% 55%,100% 69%,100% 100%,0 100%)}
+.scene-depth.near{opacity:.32;mix-blend-mode:screen}.scene-depth.near img{clip-path:polygon(0 84%,26% 72%,43% 92%,65% 78%,100% 87%,100% 100%,0 100%);filter:blur(3px)}
+.scene-runes{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.scene-runes i{position:absolute;font:normal 38px Georgia;color:#b8cf9960;text-shadow:0 0 22px #64c59b80;animation:buried-rune 13s ease-in-out infinite}
+@keyframes buried-rune{0%,100%{opacity:.08;transform:translateY(30px) rotate(-12deg)}45%{opacity:.65;transform:translateY(-35px) rotate(14deg)}}
+.chapter-transit{position:fixed;inset:0;z-index:200;display:grid;place-items:center;pointer-events:none;visibility:hidden;background:radial-gradient(ellipse,#05100dce,#020505f2);opacity:0}
+.chapter-transit.active{visibility:visible;animation:chapter-pass 1.25s both}
+.chapter-transit .transit-seal{width:150px;height:150px;border:5px double #a39c70;outline:1px dashed #65785d;outline-offset:18px;display:grid;place-items:center;box-shadow:0 0 70px #528b4933;font:60px Georgia;color:#bbb78b}
+.chapter-transit.active .transit-seal{animation:gear-unlock 1.25s both}
+@keyframes chapter-pass{0%{opacity:0}18%,62%{opacity:1}100%{opacity:0}}
+.cursor-omen{position:fixed;pointer-events:none;z-index:90;color:#aec89b;text-shadow:0 0 20px #96dbaa;font:28px Georgia;animation:omen-fade 1.8s both}
+@keyframes omen-fade{0%{opacity:0;transform:scale(.3) rotate(-30deg)}15%{opacity:.8}100%{opacity:0;transform:translateY(-60px) scale(1.8) rotate(70deg);filter:blur(3px)}}
+.quiet .chapter-transit,.quiet .scene-depth,.quiet .scene-runes,.quiet .cursor-omen{display:none}
+@media(prefers-reduced-motion:reduce){.chapter-transit,.scene-depth,.scene-runes,.cursor-omen{display:none}}
